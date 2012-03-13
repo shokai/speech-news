@@ -19,10 +19,10 @@ cache = Array.new
 
 loop do
   news.get.each do |n|
+    n.gsub!(/[…\'\"\r\n;`]/, ' ')
     next if cache.include? n
     cache << n
     puts n
-    n.gsub!(/[…\'\"\r\n;`]/, ' ')
     system "say #{n}"
     sleep params[:speech_interval].to_f
   end
