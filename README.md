@@ -13,4 +13,4 @@ Install Dependencies
 Read News
 ---------
 
-    % ruby speech_news.rb
+    % ruby -Ku speech_news.rb
