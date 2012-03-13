@@ -19,7 +19,7 @@ cache = Array.new
 
 loop do
   news.get.each do |n|
-    n.gsub!(/[…\'\"\r\n;`]/, ' ')
+    n.gsub!(/[…\'\"\r\n\s;`]/, '、')
     next if cache.include? n
     cache << n
     puts n
