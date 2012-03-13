@@ -22,7 +22,7 @@ loop do
     next if cache.include? n
     cache << n
     puts n
-    n.gsub!(/[…\'\"\r\n;`]/,'')
+    n.gsub!(/[…\'\"\r\n;`]/' ')
     system "say #{n}"
     sleep params[:speech_interval].to_f
   end
