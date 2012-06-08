@@ -1,25 +1,26 @@
 #!/usr/bin/env ruby
+# -*- coding: utf-8 -*-
 require File.dirname(__FILE__)+'/bootstrap'
-require 'ArgsParser'
+require 'args_parser'
 
-parser = ArgsParser.parser
-parser.bind(:loop, :l, 'do loop', false)
-parser.bind(:help, :h, 'show help')
-parser.comment(:speech_interval, 'speech interval (sec)', 3)
-parser.comment(:interval, 'news fetch interval (sec)', 60)
-h = Time.now.hour
-hello = (5 < h and h < 11) ? 'おはようございます' :
-  (10 < h and h < 17) ? 'こんにちは' : 'こんばんは'
-parser.comment(:before, 'before speech of news', "#{hello}、#{h}時のニュースです。")
-parser.comment(:after, 'after speech of news', "以上、#{h}時のニュースでした。")
+parser = ArgsParser.parse ARGV do
+  arg :loop, 'do loop', :alias => :l, :default => false
+  arg :help, 'show help', :alias => :h
+  arg :speech_interval, 'speech interval (sec)', :default => 3
+  arg :interval, 'news fetch interval (sec)', :default => 60
+  h = Time.now.hour
+  hello = (5 < h and h < 11) ? 'おはようございます' :
+    (10 < h and h < 17) ? 'こんにちは' : 'こんばんは'
+  arg :before, 'before speech news', :default => "#{hello}、#{h}時のニュースです。"
+  arg :after, 'after speech news', :default => "以上、#{h}時のニュースでした。"
+end
 
-first, params = parser.parse ARGV
-if parser.has_option(:help)
+if parser.has_option? :help
   puts parser.help
   exit 1
 end
 
-system "say '#{params[:before]}'"
+system "say '#{parser[:before]}'"
 
 news = News.new
 cache = Array.new
@@ -31,10 +32,10 @@ loop do
     cache << n
     puts n
     system "say #{n}"
-    sleep params[:speech_interval].to_f
+    sleep parser[:speech_interval].to_f
   end
-  break unless params[:loop]
-  sleep params[:interval].to_f
+  break unless parser[:loop]
+  sleep parser[:interval].to_f
 end
 
-system "say '#{params[:after]}'"
+system "say '#{parser[:after]}'"
