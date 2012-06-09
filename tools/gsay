@@ -1,0 +1,4 @@
+#!/bin/sh
+## speech with http://translate.google.com
+TMP=/tmp/gsay.mp3
+curl --silent --user-agent "Safari/1.0" "http://translate.google.com/translate_tts?q=$1&tl=ja" > $TMP && afplay $TMP && rm -f $TMP

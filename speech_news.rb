@@ -5,6 +5,7 @@ require 'args_parser'
 
 parser = ArgsParser.parse ARGV do
   arg :help, 'show help', :alias => :h
+  arg :say, 'speech command', :default => '/usr/bin/say'
   arg :speech_interval, 'speech interval (sec)', :default => 3
   h = Time.now.hour
   hello = (5 < h and h < 11) ? 'おはようございます' :
@@ -18,14 +19,14 @@ if parser.has_option? :help
   exit 1
 end
 
-system "say '#{parser[:before]}'"
+system "#{parser[:say]} '#{parser[:before]}'"
 
 
 News.new.get.each do |n|
   n.gsub!(/[…\'\"\r\n\s;`]/, '、')
   puts n
-  system "say #{n}"
+  system "#{parser[:say]} '#{n}'"
   sleep parser[:speech_interval].to_f
 end
 
-system "say '#{parser[:after]}'"
+system "#{parser[:say]} '#{parser[:after]}'"
