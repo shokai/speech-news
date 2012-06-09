@@ -3,9 +3,11 @@ speech news
 Speech Google News. [sample(mp3)](https://raw.github.com/shokai/speech-news/master/sample.mp3)
 
 
-Install Dependencies
---------------------
+Install
+-------
 
+    % git clone git://github.com/shokai/speech-news.git
+    % cd speech-news
     % gem install bundler
     % bundle install --path vendor/bundle
 
