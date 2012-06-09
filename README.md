@@ -17,7 +17,7 @@ Read News
 
     % ruby -Ku speech_news.rb --help
     % ruby -Ku speech_news.rb
-    % ruby -KU speech_news.rb -say "tools/gsay"
+    % ruby -Ku speech_news.rb -say "tools/gsay"
 
 
 Add News Source
