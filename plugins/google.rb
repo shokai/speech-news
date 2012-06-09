@@ -1,5 +1,5 @@
-# google newsを読む
-# 結果は配列で返す
+# Google News Plugin
+# Plugin must return String Array
 
 require 'rubygems'
 require 'simple-rss'
@@ -9,6 +9,6 @@ url = "http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=rss"
 
 rss = SimpleRSS.parse open url
 
-rss.items.map do |item|
-  item.title.gsub(/\s+-\s+.+/,'')
-end
+rss.items.map{|item|
+  item.title.gsub(/\s+-\s+.+/,'').to_s
+}
