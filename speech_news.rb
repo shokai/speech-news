@@ -4,7 +4,6 @@ require File.dirname(__FILE__)+'/bootstrap'
 require 'args_parser'
 
 parser = ArgsParser.parse ARGV do
-  arg :loop, 'do loop', :alias => :l, :default => false
   arg :help, 'show help', :alias => :h
   arg :speech_interval, 'speech interval (sec)', :default => 3
   h = Time.now.hour
