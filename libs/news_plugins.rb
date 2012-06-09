@@ -2,7 +2,7 @@
 class News
   class Plugin
     def initialize
-      Dir.glob(File.dirname(__FILE__)+'/../plugins/*.rb').each do |rb|
+      Dir.glob(File.expand_path '*.rb', "#{File.dirname(__FILE__)}/../plugins").each do |rb|
         name = rb.scan(/([^\/]+)\.rb/)[0][0].to_sym
         puts "loading plugin #{rb}"
         plugins[name] = open(rb).read

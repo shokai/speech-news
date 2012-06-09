@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # -*- coding: utf-8 -*-
-require File.dirname(__FILE__)+'/bootstrap'
+require File.expand_path 'bootstrap', File.dirname(__FILE__)
 require 'args_parser'
 
 parser = ArgsParser.parse ARGV do
