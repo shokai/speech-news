@@ -1,6 +1,5 @@
 config.yaml
 ~*
-*.lock
 *#*
 .bundle
 vendor

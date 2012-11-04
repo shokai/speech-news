@@ -1,0 +1,12 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    args_parser (0.1.2)
+    simple-rss (1.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  args_parser
+  simple-rss
