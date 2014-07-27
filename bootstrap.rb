@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'open-uri'
+require 'httparty'
 require 'simple-rss'
 
 Dir.glob(File.dirname(__FILE__)+'/libs/*.rb').each do |rb|

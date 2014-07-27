@@ -3,11 +3,11 @@
 
 require 'rubygems'
 require 'simple-rss'
-require 'open-uri'
+require 'httparty'
 
 url = "http://news.google.com/news?hl=ja&ned=us&ie=UTF-8&oe=UTF-8&output=rss"
 
-rss = SimpleRSS.parse open url
+rss = SimpleRSS.parse HTTParty.get(url).body
 
 rss.items.map{|item|
   item.title.gsub(/\s+-\s+.+/,'').to_s

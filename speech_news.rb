@@ -23,7 +23,7 @@ system "#{parser[:say]} '#{parser[:before]}'"
 
 
 News.new.get.each do |n|
-  n.gsub!(/[…\'\"\r\n\s;＞＜＼／=＝`]/u, '、')
+  n = n.force_encoding('utf-8').gsub(/[…\'\"\r\n\s;＞＜＼／=＝`]/, '、')
   puts n
   system "#{parser[:say]} '#{n}'"
   sleep parser[:speech_interval].to_f
