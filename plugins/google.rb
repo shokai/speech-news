@@ -1,7 +1,6 @@
 # Google News Plugin
 # Plugin must return String Array
 
-require 'rubygems'
 require 'simple-rss'
 require 'httparty'
 

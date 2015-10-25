@@ -1,5 +1,4 @@
 #!/usr/bin/env ruby
-# -*- coding: utf-8 -*-
 require File.expand_path 'bootstrap', File.dirname(__FILE__)
 require 'args_parser'
 

@@ -6,18 +6,16 @@ Speech Google News. [sample(mp3)](https://raw.github.com/shokai/speech-news/mast
 Install
 -------
 
-    % git clone git://github.com/shokai/speech-news.git
-    % cd speech-news
     % gem install bundler
-    % bundle install --path vendor/bundle
+    % bundle install
 
 
 Read News
 ---------
 
-    % ruby -Ku speech_news.rb --help
-    % ruby -Ku speech_news.rb
-    % ruby -Ku speech_news.rb -say "tools/gsay"
+    % bundle exec ruby speech_news.rb --help
+    % bundle exec ruby speech_news.rb
+    % bundle exec ruby speech_news.rb -say "tools/gsay"
 
 
 Add News Source

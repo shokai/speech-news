@@ -1,5 +1,3 @@
-require 'rubygems'
-require 'bundler/setup'
 require 'httparty'
 require 'simple-rss'
 

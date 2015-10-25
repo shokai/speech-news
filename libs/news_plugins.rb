@@ -1,4 +1,3 @@
-
 class News
   class Plugin
     def initialize
